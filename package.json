@@ -1,0 +1,16 @@
+{
+  "name": "generator-beaver-builder-module",
+  "version": "0.1.0",
+  "description": "Module generator for developing custom modules for your Beaver Builder based WordPress theme.",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "beaver-builder",
+    "wordpress"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^1.1.1"
+  }
+}
