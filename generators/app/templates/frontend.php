@@ -1,2 +1,5 @@
 <?php
-//Frontend php and html
+/**
+ * @var \stdClass $settings
+ * @var $module
+ */

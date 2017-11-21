@@ -57,15 +57,15 @@ module.exports = class extends Generator {
             default : defaultValues.icon
         }]).then((answers) => {
 
-            let dir = answers.prefix + '-' + answers.file_system_name;
+            let dir = answers.prefix.trim() + '-' + answers.file_system_name.trim();
 
             this.fs.copyTpl(
                 this.templatePath('module.php'),
-                this.destinationPath( dir + '/ ' + dir + '.php'),
+                this.destinationPath( dir + '/' + dir + '.php'),
                 {
-                    namespace: answers.namespace,
-                    class_name: answers.class_name,
-                    file_system_name: answers.file_system_name,
+                    namespace: answers.namespace.trim(),
+                    class_name: answers.class_name.trim(),
+                    file_system_name: answers.file_system_name.trim(),
                     dir: dir,
                     nice_name: answers.nice_name,
                     description: answers.description,
@@ -77,18 +77,7 @@ module.exports = class extends Generator {
 
             this.fs.copyTpl(
                 this.templatePath('frontend.php'),
-                this.destinationPath( dir + '/includes/frontend.php'),
-                {
-                    namespace: answers.namespace,
-                    class_name: answers.class_name,
-                    file_system_name: answers.file_system_name,
-                    dir: dir,
-                    nice_name: answers.nice_name,
-                    description: answers.description,
-                    group: answers.group,
-                    category: answers.category,
-                    icon: answers.icon,
-                }
+                this.destinationPath( dir + '/includes/frontend.php')
             );
 
             this.log('Completed Beaver Builder Module:', answers.nice_name);
